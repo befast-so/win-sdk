@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <sdk_root>$(Registry:HKEY_LOCAL_MACHINE\Software\vistek\dev@sdk_root)</sdk_root>
+    <libssl_home>$(sdk_root)libssl</libssl_home>
+    <libssl_include>$(libssl_home)\include</libssl_include>
+    <libssl_lib>$(libssl_home)\lib\$(PlatformToolset)\$(PlatformTarget)\$(Configuration)</libssl_lib>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(libssl_include);$(IncludePath)</IncludePath>
+    <LibraryPath>$(libssl_lib);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="sdk_root">
+      <Value>$(sdk_root)</Value>
+    </BuildMacro>
+    <BuildMacro Include="libssl_home">
+      <Value>$(libssl_home)</Value>
+    </BuildMacro>
+    <BuildMacro Include="libssl_include">
+      <Value>$(libssl_include)</Value>
+    </BuildMacro>
+    <BuildMacro Include="libssl_lib">
+      <Value>$(libssl_lib)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

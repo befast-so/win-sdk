@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <sdk_root>$(Registry:HKEY_LOCAL_MACHINE\Software\vistek\dev@sdk_root)</sdk_root>
+    <libthrift_home>$(sdk_root)libthrift</libthrift_home>
+    <libthrift_include>$(libthrift_home)\include</libthrift_include>
+    <libthrift_lib>$(libthrift_home)\lib\$(PlatformToolset)\$(PlatformTarget)\$(Configuration)</libthrift_lib>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(libthrift_include);$(IncludePath)</IncludePath>
+    <LibraryPath>$(libthrift_lib);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="sdk_root">
+      <Value>$(sdk_root)</Value>
+    </BuildMacro>
+    <BuildMacro Include="libthrift_home">
+      <Value>$(libthrift_home)</Value>
+    </BuildMacro>
+    <BuildMacro Include="libthrift_include">
+      <Value>$(libthrift_include)</Value>
+    </BuildMacro>
+    <BuildMacro Include="libthrift_lib">
+      <Value>$(libthrift_lib)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
